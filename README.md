@@ -1,72 +1,92 @@
-姿勢分析系統 (Pose Analyzer)
+# Pose Analyzer
 
-這個應用程式使用 MediaPipe 和 OpenCV 技術來分析人體姿勢，測量關鍵角度，並提供視覺化結果。適用於運動科學、物理治療和健身訓練等領域的姿勢評估。
+A computer vision application that analyzes human posture, measures key joint angles, and provides visual feedback. Designed for sports science, physical therapy, and fitness training applications.
 
-功能特點
+## Features
 
-- **照片與影片分析**：支援分析靜態照片和動態影片
-- **多角度測量**：計算並顯示以下關鍵角度：
-  - 胯下角度 (髖關節中點與膝蓋之間的角度)
-  - 身體-腿部角度 (肩膀、髖部與腳踝之間的角度)
-- **選擇性顯示**：可選擇只顯示左側、右側或兩側的測量結果
-- **直覺操作界面**：簡潔易用的圖形化使用者界面
-- **即時預覽**：處理過程中提供即時視覺回饋
-- **進度監控**：影片處理時顯示進度條和百分比
+- **Photo and Video Analysis**: Support for analyzing both static images and dynamic videos
+- **Multi-angle Measurement**: Calculates and displays the following key angles:
+  - Hip angle (angle between hip joint center and knees)
+  - Body-leg angle (angle between shoulders, hips, and ankles)
+- **Selective Display**: Option to show measurements for left side, right side, or both sides
+- **Intuitive Interface**: Clean and user-friendly graphical user interface
+- **Real-time Preview**: Visual feedback during processing
+- **Progress Monitoring**: Progress bar and percentage display during video processing
 
-系統需求
+## System Requirements
 
 - Python 3.6+
 - OpenCV
 - MediaPipe
 - NumPy
-- Tkinter (Python 內建)
+- Tkinter (Python built-in)
 - PIL (Pillow)
 
-安裝指南
+## Installation
 
-1. 確保已安裝 Python 3.6 或更高版本
-2. 安裝所需的依賴套件：
-
+1. Ensure Python 3.6 or higher is installed
+2. Install required dependencies:
 ```bash
 pip install opencv-python mediapipe numpy pillow
 ```
 
-使用方法
+## Usage
 
-1. 執行應用程式：
-
+1. Run the application:
 ```bash
 python pose_analyzer.py
 ```
+2. In the control panel:
+   - Select input type (photo or video)
+   - Choose which body side to display (left, right, or both)
+   - Click "Browse" to select an input file
+   - Set the output folder
+   - Click "Analyze" to start processing
+3. The analysis process will be displayed in the preview area, and results will be saved to the selected output folder
 
-2. 在控制面板中：
-   - 選擇輸入類型 (照片或影片)
-   - 選擇要顯示的身體側面 (左側、右側或兩側)
-   - 點擊「瀏覽」按鈕選擇輸入檔案
-   - 設定輸出資料夾
-   - 點擊「分析」開始處理
+## Angle Measurement Details
 
-3. 分析過程會在預覽區域顯示，完成後處理結果會儲存至選擇的輸出資料夾
+- **Hip Angle** (red lines): Measures the angle between left knee, hip joint center, and right knee, indicating hip opening degree
+- **Body-Leg Angle** (green lines): Measures the angle between shoulders, hips, and ankles, showing the relative angle between the body and legs
 
-角度測量說明
+## Limitations and Considerations
 
-- **胯下角度** (紅色線條)：測量左膝、髖關節中點與右膝之間的角度，顯示胯下開合程度
-- **身體-腿部角度** (綠色線條)：測量肩膀、髖部與腳踝之間的角度，顯示身體與腿部的相對角度
+- Analysis accuracy depends on MediaPipe's pose detection capabilities
+- Loose clothing may reduce detection precision
+- The person should be fully visible in the photo/video
+- High-resolution video processing may require more time
 
-限制與注意事項
+## Troubleshooting
 
-- 分析準確度依賴於 MediaPipe 的姿勢偵測能力
-- 穿著寬鬆衣物可能降低偵測精確度
-- 照片/影片中人物應完整可見
-- 高解析度影片處理可能需要較長時間
+- **No pose detected**: Ensure the person is clearly visible and the pose is complete
+- **Slow processing**: Consider reducing video resolution or using more powerful hardware
+- **Inaccurate results**: Try capturing in well-lit environments and wearing fitted clothing
 
-常見問題解答
+## License
 
-- **無法偵測到姿勢**：確保人物在畫面中清晰可見且姿勢完整
-- **處理速度慢**：考慮降低影片解析度或使用效能較好的設備
-- **分析結果不準確**：嘗試在光線良好的環境中拍攝，並穿著貼身服裝
+This software is provided for research and educational purposes only. Not for diagnostic or treatment purposes. Users assume all risks associated with its use.
 
-授權聲明
+## References
 
-本軟體僅供研究和教育用途，請勿用於診斷或治療目的。使用者需自行承擔使用風險。
+- [MediaPipe Pose](https://google.github.io/mediapipe/solutions/pose) - Advanced pose tracking technology
+- [OpenCV](https://opencv.org/) - Open source computer vision library
+- [NumPy](https://numpy.org/) - Fundamental package for scientific computing with Python
+- [Pillow](https://python-pillow.org/) - Python Imaging Library
 
+## Citation
+
+If you use this tool in your research, please cite:
+
+```
+@software{pose_analyzer,
+  author = {Your Name},
+  title = {Pose Analyzer: A Tool for Human Posture Analysis},
+  year = {2025},
+  url = {https://github.com/yourusername/pose-analyzer}
+}
+```
+
+## Acknowledgments
+
+- Google MediaPipe team for providing the pose estimation framework
+- OpenCV community for computer vision tools and libraries
